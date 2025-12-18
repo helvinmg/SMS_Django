@@ -22,4 +22,4 @@ def examschedule(request):
            {'sub':'C++','date':'23rd June'},
            'day5':
            {'sub':'OS','date':'24th June'}}
-    return render(request, 'examschedule.html',dates)
+    return render(request, 'examschedule.html',{'dates':dates})

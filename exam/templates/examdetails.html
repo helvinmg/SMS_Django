@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{# boilerplate from base.html will be used #}
+{# below content will be injected in place of block content in base.html #}
+{% block content %}
     <h1> Exam Name: End Semeseter </h1>
     <h2> Exam Date: 25th June 2024 </h2>
     <h2> Duration: 3 Hours </h2>
@@ -20,5 +16,4 @@
     {% else %}
     <h2>Some Students Failed</h2>
     {% endif %}
-</body>
-</html>
+{% endblock %}
