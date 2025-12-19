@@ -2,5 +2,13 @@
 {% load static %}
 {% block content %}
 <h1>Admission Details</h1>
+{% for stud in students %}
+    <h3>Serial No: {{ stud.slno }}</h3>
+    <h3>Name: {{ stud.name }}</h3>
+    <h3>Course: {{ stud.course }}</h3>
+    <h3>Phone Number: {{ stud.phonenum }}</h3>
+    <h3>Fee Paid: {{ stud.feepaid }}</h3>
+    <hr>
+{% endfor %}
 <img src="{% static 'images/admission.jpg' %}" alt="amission">
 {% endblock %}
