@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Student
 from .forms import StudentForm
 # Create your views here.
@@ -12,6 +12,7 @@ def add_admission(request):
         form=StudentForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('admission')
     else:
         form=StudentForm()
     return render(request, 'admission_form.html',{'admissionform':form})
