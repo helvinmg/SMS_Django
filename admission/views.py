@@ -16,3 +16,11 @@ def add_admission(request):
     else:
         form=StudentForm()
     return render(request, 'admission_form.html',{'admissionform':form})
+
+def delete_admission(request,id):
+    if request.method=='GET':
+        return render(request, 'delete_confirm.html')
+    else:
+        student=Student.objects.get(pk=id)#fetching record based on primary key
+        student.delete()#deleting fetched record
+        return redirect('admission')

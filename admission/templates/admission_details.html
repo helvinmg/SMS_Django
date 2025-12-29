@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Admission Details</h1>
 <table border="1" cellspacing="0">
-<tr><th>Sl No</th><th>Name</th><th>Course</th><th>Phone Number</th><th>Fee Paid</th></tr>
+<tr><th>Sl No</th><th>Name</th><th>Course</th><th>Phone Number</th><th>Fee Paid</th><th>Action</th></tr>
 {% for stud in students %}
 <tr>
     <td>{{ stud.slno }}</td>
@@ -11,7 +11,7 @@
     <td>{{ stud.course }}</td>
     <td>{{ stud.phonenum }}</td>
     <td>{{ stud.feepaid }}</td>
-
+    <td><a href="{% url 'delete' id=stud.id %}" style="background-color: red;color:white;text-decoration: none;">Delete</a></td>
 </tr>
 {% endfor %}
 </table>
