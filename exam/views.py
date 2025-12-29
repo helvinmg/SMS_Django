@@ -6,8 +6,14 @@ def home(request):
     return render(request, 'home.html')
 
 def examsummary(request):
-    #the count is coming db
-    count={'pass':29,'fail':6,'absent':2}
+    #assume total students
+    batchcount=20
+    #only those who attended exam
+    totalpresent=Examscore.objects.all().count()
+    #only those who passed
+    passcount=Examscore.objects.filter(marks__gte=40).count()
+    #select count(*) from exammarks where marks>=40
+    count={'pass':passcount,'fail':totalpresent-passcount,'absent':batchcount-totalpresent}
     return render(request, 'examsummary.html',count)
     #return render(request, template_name, context)
     #context is dictionary
