@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{# boilerplate from base.html will be used #}
+{# below content will be injected in place of block content in base.html #}
+{% block content %}
+    <h1> Exam Name: End Semeseter </h1>
+    <h2> Exam Date: 25th June 2024 </h2>
+    <h2> Duration: 3 Hours </h2>
+    <hr>
+    <h1>Student Details</h1>
+    <h2 style="color:green"> Passed Students Count : {{pass}}</h2>
+    <h2 style="color:red"> Failed Students Count : {{fail}}</h2>
+    <h2 style="color:blue"> Absent Students Count : {{absent}}</h2>
+    {# DTL if-else example #}
+    {% if fail == 0 %}
+    <h2>All Pass</h2>
+    {% else %}
+    <h2>Some Students Failed</h2>
+    {% endif %}
+{% endblock %}
