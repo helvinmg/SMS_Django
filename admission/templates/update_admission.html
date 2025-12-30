@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Update Admission Record</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ admissionform.as_p }} 
+<button type="submit">Submit</button>
+</form>
+{% endblock %}

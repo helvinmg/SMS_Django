@@ -24,4 +24,17 @@ def delete_admission(request,id):
     else:
         student=Student.objects.get(pk=id)#fetching record based on primary key
         student.delete()#deleting fetched record
+        #delete from student where pk=4
         return redirect('admission')
+    
+def update_admission(request,id):
+    print("Update admission called for id:", id)
+    student=Student.objects.get(pk=id)
+    if request.method=='POST':
+        form=StudentForm(request.POST,instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('admission')
+    else:
+        form=StudentForm(instance=student)
+    return render(request, 'update_admission.html',{'admissionform':form})
