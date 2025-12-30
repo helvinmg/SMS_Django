@@ -18,6 +18,7 @@ def add_admission(request):
     return render(request, 'admission_form.html',{'admissionform':form})
 
 def delete_admission(request,id):
+    #first visit will be GET method
     if request.method=='GET':
         return render(request, 'delete_confirm.html')
     else:
