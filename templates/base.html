@@ -11,6 +11,16 @@
     </style>
 </head>
 <body>
+    <nav>
+        {% if user.is_authenticated %} 
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </nav>
     <h2 style="text-align: center;background-color: darkmagenta;color:white">Student Management System</h2>
     {% block content %}
     {# Content will be injected here from child #}

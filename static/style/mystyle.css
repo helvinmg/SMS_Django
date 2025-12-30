@@ -6,3 +6,11 @@ th
 {
     background-color: lightblue;
 }
+nav a,nav button
+{
+    font-size: 22px;
+    text-decoration: none;
+    background-color: yellow;
+    position: absolute;
+    right: 10px;
+}

@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from .models import Student
 from .forms import StudentForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def admission(request):
     #fetch data from db
@@ -17,6 +19,7 @@ def add_admission(request):
         form=StudentForm()
     return render(request, 'admission_form.html',{'admissionform':form})
 
+@login_required
 def delete_admission(request,id):
     #first visit will be GET method
     if request.method=='GET':
