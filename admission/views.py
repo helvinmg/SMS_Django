@@ -28,13 +28,13 @@ def delete_admission(request,id):
         return redirect('admission')
     
 def update_admission(request,id):
-    print("Update admission called for id:", id)
-    student=Student.objects.get(pk=id)
+    #print("Update admission called for id:", id)
+    stud=Student.objects.get(pk=id)
     if request.method=='POST':
-        form=StudentForm(request.POST,instance=student)
+        form=StudentForm(request.POST,instance=stud)
         if form.is_valid():
             form.save()
             return redirect('admission')
     else:
-        form=StudentForm(instance=student)
-    return render(request, 'update_admission.html',{'admissionform':form})
+        form=StudentForm(instance=stud)
+        return render(request, 'update_admission.html',{'admissionform':form})
